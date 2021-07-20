@@ -7,9 +7,9 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class ApiEmailcheck {
 
-    @RequestMapping("/")
+    @RequestMapping("/api/emailCheck")
     public String email_check() throws Exception{
-        return "EmailCheck.html";
+        return "EmailCheck";
     }
     
 }

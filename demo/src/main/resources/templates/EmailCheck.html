@@ -14,11 +14,14 @@
 <body>
 
     <form class="emailSubscribe"> 
+        <!-- 제목 -->
         <h4>이메일 체크하기</h4> 
+         <!-- 이메일 입력칸 -->
         <input id='email' placeholder="이메일을 입력하세요." autocomplete="off"/> 
        <br>
-
+            <!-- 이메일 체크버튼, onclick 시 email.js의 verifyEmail 이 호출됨. -->
             <button type="button"onclick="verifyEmail()">이메일 체크</button> 
+             <!-- 결과창 출력버튼(입력한 이메일) -->
             <div id='result'></div>
        
         </div>
