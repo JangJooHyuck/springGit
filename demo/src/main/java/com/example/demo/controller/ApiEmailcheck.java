@@ -9,7 +9,7 @@ public class ApiEmailcheck {
 
     @RequestMapping("/")
     public String email_check() throws Exception{
-        return "EmailCheck";
+        return "EmailCheck.html";
     }
     
 }
