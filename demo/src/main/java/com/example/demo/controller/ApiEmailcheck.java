@@ -6,15 +6,10 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class ApiEmailcheck {
-    
+
     @RequestMapping("/")
-    public String root_test() throws Exception{
+    public String email_check() throws Exception{
         return "EmailCheck";
-    }
- 
-    @RequestMapping("/demo")
-    public String demo_test() throws Exception{
-        return "Hello demo(/demo)";
     }
     
 }
