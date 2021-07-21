@@ -6,18 +6,26 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.service.EmailcheckService;
+import com.example.model.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 @Controller
 @RequestMapping("/api")
-
 public class ApiController {
+
     @Autowired
     EmailcheckService emailcheckservice;
 
-    @RequestMapping("/check")
+    @GetMapping("/check")
     @ResponseBody
-    public String checkEmail(@RequestParam(value = "check") String userEmail)  
+    public User result(@RequestParam(value = "check") String userEmail) {
+
+        User user = new User();
+        user.setEmail(userEmail);
+        user.setResult(emailcheckservice.isValidEmail(userEmail));
+
+        return user;
+    }
 }

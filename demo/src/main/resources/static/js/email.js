@@ -1,6 +1,6 @@
 
 //사용자가 입력한 이메일 출력
-function verifyEmail() {
+async function verifyEmail() {
     
      // email 에 id=email 안에 들어있는 값을 넣어줌
      const email = document.getElementById('email').value;
@@ -9,8 +9,17 @@ function verifyEmail() {
      document.getElementById("inputEmail").innerText = email;
 
      //api 호출하기
-     const apicheck = fetch(encodeURI("http://localhost:1233/api/check/get?check"));
-         
+     const resp = await fetch(encodeURI("http://localhost:1233/api/get?check=" + email))
+     const respData = await resp.json();
+
+     if(respData.result == "sucess"){
+          document.getElementById("email").innerText = respData.email;
+          document.getElementById("result").innerText = respData.result;
+     }else{
+          document.getElementById("email").innerText = respData.email;
+          document.getElementById("result").innerText = respData.result;
+     }
+
     }
      
    
