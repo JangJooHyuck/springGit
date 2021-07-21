@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 @Controller
-@RequestMapping("/api")
+@RequestMapping("/api")1
 public class ApiController {
 
     @Autowired
