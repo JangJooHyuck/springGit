@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EmailcheckSV {
+public class EmailcheckService {
 
     // email 정규식 정의
     static String Emailpattern = "^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$";
