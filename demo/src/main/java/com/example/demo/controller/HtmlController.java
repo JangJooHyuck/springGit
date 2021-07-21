@@ -8,6 +8,8 @@ public class HtmlController {
 
     @RequestMapping("/")
     public String email_check() throws Exception {
+        
+        //EmailCheck.html 불러옴
         return "EmailCheck";
     }
 

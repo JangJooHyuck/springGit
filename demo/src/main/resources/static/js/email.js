@@ -8,13 +8,19 @@ async function verifyEmail() {
      // id=result 안에 innerText를 통해 저장된 email 의 값을 출력해줌
      document.getElementById("inputEmail").innerText = email;
 
-     //api 호출하기
+     //api 호출하기 --> fetch로 api를 호출하고(ApiController.26), check 에 email 값을 넣어준다
      const resp = await fetch(encodeURI("http://localhost:1233/api/get?check=" + email))
+     //resp 에는 ApiController 에서 반환된 user 의 값이 들어가게됨
+
+     //respData 에다가 resp 값을 json타입으로 넣어준다
      const respData = await resp.json();
 
-     if(respData.result == "sucess"){
+     //만약 respData에 result 가 succes 라면
+     if(respData.result == "success"){
           document.getElementById("email").innerText = respData.email;
           document.getElementById("result").innerText = respData.result;
+
+     //아니면
      }else{
           document.getElementById("email").innerText = respData.email;
           document.getElementById("result").innerText = respData.result;
