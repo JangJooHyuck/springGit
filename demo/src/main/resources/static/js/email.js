@@ -8,10 +8,11 @@ function verifyEmail() {
      // id=result 안에 innerText를 통해 저장된 email 의 값을 출력해줌
      document.getElementById("inputEmail").innerText = email;
      
+     const 
      fetch('http://localhost:1233/api')
      .then(console.log(email))
 
-     if()
+   
         
          }
      
