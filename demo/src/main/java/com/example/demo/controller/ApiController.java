@@ -13,6 +13,7 @@ import com.example.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 
 
@@ -32,27 +33,28 @@ public class ApiController {
     public User GETresult(@RequestParam(value = "check") String userEmail) {
 
         // User 객체생성
-        User user = new User();
+        User userResult = new User();
 
-        user.setEmail(userEmail);
-        user.setResult(emailcheckservice.isValidEmail(userEmail));
+        userResult.setEmail(userEmail);
+        userResult.setResult(emailcheckservice.isValidEmail(userEmail));
         
        
 
         // user 값을 반환한다
-        return user;
+        return userResult;
     }
 
     //post 방식
     @PostMapping("/post")
     @ResponseBody
-    public User POSTresult(@RequestParam User user) throws Exception {
-        String isValid = emailcheckservice.isValidEmail(user.getEmail());
-        User user2 = new User();
-        user2.setEmail(user.getEmail());
-        user2.setResult(isValid);
+    public User POSTresult(@RequestBody User user) throws Exception {
 
-        return user2;
+        String isValid = emailcheckservice.isValidEmail(user.getEmail());
+        User userResult = new User();
+        userResult.setEmail(user.getEmail());
+        userResult.setResult(isValid);
+
+        return userResult;
     }
     
     

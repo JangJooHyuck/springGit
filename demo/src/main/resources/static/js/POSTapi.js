@@ -1,19 +1,19 @@
 async function PostAPI(){
 
-        // html 에서 값을 email에 저장함
-        const email = document.getElementById('email').value;
+        // html 에서 값을 getemail에 저장함
+        const getemail = document.getElementById("email").value;
 
         
         //api 호출
-        // 
-        await fetch("http://localhost:1233/api/post", {
+        await fetch(
+            "http://localhost:1233/api/post", {
             method: "POST",
             headers: {
-                "Content-Type" : "application/json"
+                "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                useremail : email,
-                result : false
+                email = getemail,
+                result = "failed",
             })
         }
      )
