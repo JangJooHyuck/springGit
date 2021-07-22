@@ -12,8 +12,8 @@ async function PostAPI(){
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                email = getemail,
-                result = "failed",
+                email : getemail,
+                result : "failed"
             })
         }
      )
