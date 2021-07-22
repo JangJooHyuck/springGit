@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RequestMapping("/api")
 public class ApiController {
 
-    
     //객체 자동생성 Autowired
     @Autowired
     EmailcheckService emailcheckservice;
@@ -31,11 +30,12 @@ public class ApiController {
     @GetMapping("/get")
     @ResponseBody
     // 값이 check 인것을 파라미터로 받아온다.
-    public User GETresult(@RequestParam(value = "check") String userEmail)throws Exception {
+    public User GETresult(@RequestParam(value = "check") String userEmail) throws Exception {
+        
+         //3초 지연
+         Thread.sleep(3000);
 
-        //3초 지연
-        Thread.sleep(3000);
-
+       
         // User 객체생성
         User userResult = new User();
 

@@ -5,15 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:text="${value}"></title>
-    <link rel="stylesheet" type="text/css" href="/css/test.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 <script src="/js/Getapi.js" defer></script>
 <script src="/js/POSTapi.js" defer></script>
+
+
 
 
 
 </head>
 <body>
 
+    
+   
+    <!-- display가 none 이면 없어지고, blcok 이면 나타남-->
+   <div id="spinner" style="display:none">
+    <!--loader는 회전하는 그림 -->
+    <div class="loader"></div>
+</div>
+    </script>
     <form class="emailSubscribe"> 
         
         <!-- 제목 -->
