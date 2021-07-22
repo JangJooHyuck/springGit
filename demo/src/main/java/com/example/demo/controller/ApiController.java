@@ -22,7 +22,7 @@ public class ApiController {
     //EmailcheckService 를 가져온다
     EmailcheckService emailcheckservice;
 
-    //get방식 api 호출
+    //get방식 api 
     @GetMapping("/get")
     @ResponseBody
 
