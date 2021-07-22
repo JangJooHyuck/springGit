@@ -48,6 +48,17 @@
 			<version>1.16.16</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- 제이쿼리 추가 !-->
+		<dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>jquery</artifactId>
+            <version>3.5.1 </version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>webjars-locator</artifactId>
+            <version>0.40</version>
+        </dependency>
 		
 	</dependencies>
 

@@ -5,8 +5,8 @@ async function GetAPI() {
      // email 에 id=email 안에 들어있는 값을 넣어줌
      const getemail = document.getElementById("email").value;
 
-     // 
-     $("#spinner").css("display", "none");
+     //제이쿼리. spinner 에 있는 display 값을 block으로 해준다.
+     $("#spinner").css("display", "block");
 
      //api 호출하기 --> fetch로 api를 호출하고(ApiController.26), check 에 email 값을 넣어준다
      const resp = await fetch(encodeURI("http://localhost:1233/api/get?check=" + getemail))
@@ -25,6 +25,7 @@ async function GetAPI() {
           document.getElementById("email").innerText = respData.email;
           document.getElementById("result").innerText = respData.result;
      }
+     //제이쿼리. spinner 에 있는 display 값을 none으로 해준다.
      $("#spinner").css("display", "none");
 
     }
