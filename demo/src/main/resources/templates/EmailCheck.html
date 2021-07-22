@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>이메일Checking</title>
     <link rel="stylesheet" type="text/css" href="/css/test.css">
-<script src="/js/email.js" defer></script>
+<script src="/js/Getapi.js" defer></script>
+<script src="/js/POSTapi.js" defer></script>
 
 
 
@@ -21,7 +22,9 @@
         <input id="email" placeholder="이메일을 입력하세요." autocomplete="off"/> 
        <br>
             <!-- 이메일 체크버튼, onclick 시 email.js의 verifyEmail 이 호출됨. -->
-            <button type="button" onclick="verifyEmail()" >이메일 체크</button>
+            <button type="button" onclick="GetAPI()" >GET</button>
+            <button type="button" onclick="PostAPI()" >POST</button>
+
              <!-- 입력한이메일 출력버튼 -->
             <div >
                 <h1 id="email"></h1>

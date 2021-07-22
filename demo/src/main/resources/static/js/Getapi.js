@@ -1,6 +1,6 @@
 
 //사용자가 입력한 이메일 출력
-async function verifyEmail() {
+async function GetAPI() {
     
      // email 에 id=email 안에 들어있는 값을 넣어줌
      const email = document.getElementById('email').value;
