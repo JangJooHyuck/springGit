@@ -15,7 +15,7 @@ async function verifyEmail() {
      //respData 에다가 resp 값을 json타입으로 넣어준다
      const respData = await resp.json();
 
-     //만약 respData에 result 가 succes 라면
+     //만약 respData에 result 가 success 라면
      if(respData.result == "success"){
           document.getElementById("email").innerText = respData.email;
           document.getElementById("result").innerText = respData.result;

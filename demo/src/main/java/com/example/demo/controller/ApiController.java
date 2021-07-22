@@ -22,18 +22,17 @@ public class ApiController {
     //EmailcheckService 를 가져온다
     EmailcheckService emailcheckservice;
 
-    //get으로 호출을 받으면
+    //get방식 api 호출
     @GetMapping("/get")
     @ResponseBody
 
+    // 값이 check 인것을 파라미터로 받아온다.
     public User result(@RequestParam(value = "check") String userEmail) {
 
         // User 객체생성
         User user = new User();
 
-        //email 에다가 userEmail 값을 넣고
         user.setEmail(userEmail);
-        //Result 에다가 isValidEmail 에서 나온 값을 넣어준다.
         user.setResult(emailcheckservice.isValidEmail(userEmail));
 
         // user 값을 반환한다
