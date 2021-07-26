@@ -9,10 +9,10 @@
             "server": "localhost",
             "port": 3306,
             "driver": "MariaDB",
-            "name": "Localhost",
-            "password": "P@ssword11",
-            "database": "db",
-            "username": "jh"
+            "name": "test",
+            "database": "test_db",
+            "username": "jh",
+            "password": "P@ssword11"
         }
     ]
 }
