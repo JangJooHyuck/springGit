@@ -28,7 +28,11 @@
     <form class="emailSubscribe"> 
         
         <!-- 제목 -->
-        <h4>이메일 체크하기</h4> 
+        <p><span style="border-radius: 15px 15px 15px 0; 
+        border: 3px solid #FFAD5B; 
+        padding: 0.5em 0.6em; 
+        color: #FF8000;">Checking Email</span>
+       </p>
          <!-- 이메일 입력칸 -->
         <input id="email" placeholder="이메일을 입력하세요." autocomplete="off"/> 
        <br>
@@ -36,9 +40,9 @@
             <button type="button" onclick="GetAPI()" >GET</button>
             <button type="button" onclick="PostAPI()" >POST</button>
 
-             <!-- 입력한이메일 출력버튼 -->
+           
             <div >
-                <h1 id="email"></h1>
+                <h1 id="emailprint"></h1>
             </div>
             <div >
                 <h1 id="result"></h1>
