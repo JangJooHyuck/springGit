@@ -35,15 +35,12 @@ public class ApiController {
          //3초 지연
          Thread.sleep(3000);
 
-       
         // User 객체생성
         User userResult = new User();
 
         userResult.setEmail(userEmail);
         userResult.setResult(emailcheckservice.isValidEmail(userEmail));
         
-       
-
         // user 값을 반환한다
         return userResult;
     }
