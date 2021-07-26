@@ -1,9 +1,35 @@
 @charset "UTF-8";
+
 body {
 background-color: #7357d8;
-min-height: 100%;
+    height: 500px;
     display: flex;
     justify-content:center;
+    align-items: center;
+}
+
+
+#btn_1{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    margin-right: -4px;
+    width: 50%;
+}
+#btn_2{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    margin-left: -3px;
+    width: 50%;
+}
+#btn_group button{
+    border: 1px solid skyblue;
+    background-color: rgba(0,0,0,0);
+    color: skyblue;
+    padding: 5px;
+}
+#btn_group button:hover{
+    color: white;
+    background-color: skyblue;
 }
 
 .loader { 
