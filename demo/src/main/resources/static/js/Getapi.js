@@ -17,12 +17,12 @@ async function GetAPI() {
 
      //만약 respData에 result 가 success 라면
      if(respData.result == "success"){
-          document.getElementById("email").innerText = respData.email;
+          document.getElementById("emailprint").innerText = respData.email+ " =";
           document.getElementById("result").innerText = respData.result;
 
      //아니면
      }else{
-          document.getElementById("email").innerText = respData.email;
+          document.getElementById("emailprint").innerText = respData.email + " =";
           document.getElementById("result").innerText = respData.result;
      }
      //제이쿼리. spinner 에 있는 display 값을 none으로 해준다.

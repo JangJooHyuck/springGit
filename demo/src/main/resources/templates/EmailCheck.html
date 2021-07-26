@@ -25,20 +25,38 @@
     <div class="loader"></div>
 </div>
     </script>
+    
     <form class="emailSubscribe"> 
         
         <!-- 제목 -->
-        <p><span style="border-radius: 15px 15px 15px 0; 
-        border: 3px solid #FFAD5B; 
-        padding: 0.5em 0.6em; 
+        
+
+        <p><span style="border-radius: 100px 100px 100px 100px; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 5px solid #5bd9ff; 
+        padding: 0.5em 0.6em;
         color: #FF8000;">Checking Email</span>
        </p>
+       <br>
          <!-- 이메일 입력칸 -->
-        <input id="email" placeholder="이메일을 입력하세요." autocomplete="off"/> 
+         <!-- placeholder = input 박스 안에 텍스트,
+            onfocus = 박스클릭했을 때 placeholder 문구 삭제
+            onblur = 다른 곳을 클릭했을 때 다시 박스안에 텍스트 생성-->
+            <div id="emailinput">
+        <input type="text" id="email" placeholder=" 이메일을 입력하세요."onfocus="this.placeholder=''"
+        onblur="this.placeholder=' 이메일을 입력하세요.'"
+        autocomplete="off" 
+        style="width: 150pt; height:20pt"/></div>
+       
        <br>
             <!-- 이메일 체크버튼, 각각 클릭시 GetAPI()또는 PostAPI() 호출 -->
-            <button type="button" onclick="GetAPI()" >GET</button>
-            <button type="button" onclick="PostAPI()" >POST</button>
+            <div id="btn_group">
+            <button  id="btn_1" type="button" onclick="GetAPI()" >GET</button>
+            <button  id="btn_2" type="button" onclick="PostAPI()" >POST</button>
+        </div>
+        
 
            
             <div >
@@ -47,7 +65,7 @@
             <div >
                 <h1 id="result"></h1>
             </div>
-       
+        
      </form>
 
 </body>
