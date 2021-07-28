@@ -1,17 +1,21 @@
 package com.example.demo.controller;
 
+import com.example.demo.test.service.TestService;
+import com.example.demo.test.vo.TestVo;
+import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
 
 
 import com.example.demo.service.EmailcheckService;
 import com.example.model.User;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -25,6 +29,7 @@ public class ApiController {
     //객체 자동생성 Autowired
     @Autowired
     EmailcheckService emailcheckservice;
+    TestService testService;
 
     //get방식 
     @GetMapping("/get")
@@ -59,6 +64,16 @@ public class ApiController {
         userResult.setResult(isValid);
 
         return userResult;
+    }
+
+    @RequestMapping(value = "/test")
+    public ModelAndView test() throws Exception {
+
+        List<TestVo> testList = testService.selectTest();
+
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("list", testList);
+        return mav;
     }
     
     
