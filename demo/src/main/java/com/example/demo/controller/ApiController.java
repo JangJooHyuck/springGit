@@ -74,7 +74,7 @@ public class ApiController {
         ModelAndView mav = new ModelAndView();
         mav.addObject("list", testList);
         return mav;
-        //저장확인
+        
     }
     
     
