@@ -1,22 +1,21 @@
 package com.example.demo.controller;
 
-import com.example.demo.test.service.TestService;
-import com.example.demo.test.vo.TestVo;
+import com.example.demo.service.dbService;
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-
-import java.util.List;
 
 
+
+
+import com.example.demo.model.Userlog;
 import com.example.demo.service.EmailcheckService;
-import com.example.model.User;
 
-import org.springframework.web.bind.annotation.PostMapping;
+
 import org.springframework.web.bind.annotation.RequestBody;
 
 
@@ -29,53 +28,56 @@ public class ApiController {
     //객체 자동생성 Autowired
     @Autowired
     EmailcheckService emailcheckservice;
-    TestService testService;
+
+    @Autowired
+    dbService dbservice;
+
+    Userlog userlog = new Userlog();
 
     //get방식 
     @GetMapping("/get")
     @ResponseBody
     // 값이 check 인것을 파라미터로 받아온다.
-    public User GETresult(@RequestParam(value = "check") String userEmail) throws Exception {
+    public Userlog getResult(@RequestParam(value = "check") String userEmail, @RequestParam(value="userIP") String UserIP ) throws Exception {
         
          //3초 지연
          Thread.sleep(3000);
 
-        // User 객체생성
-        User userResult = new User();
+        Boolean usermailboolean = emailcheckservice.isValidEmail(userEmail);
+        userlog.setDate(dbservice.findNow());
+        userlog.setIdx(dbservice.findIdx()+1);
+        userlog.setResult(userEmail);
+        userlog.setMail(dbservice.logBoolean(usermailboolean));
+        userlog.setUserIP(UserIP);
 
-        userResult.setEmail(userEmail);
-        userResult.setResult(emailcheckservice.isValidEmail(userEmail));
+        //db에 로그 저장
+        dbservice.insertLog(userlog);
+        return userlog;
+
         
-        // user 값을 반환한다
-        return userResult;
     }
 
     //post 방식
-    @PostMapping("/post")
+    @RequestMapping(value = "/post", method = RequestMethod.POST)
     @ResponseBody
-    public User POSTresult(@RequestBody User user) throws Exception {
+    public Userlog POSTresult(@RequestBody Userlog userlog) throws Exception {
 
         //3초 지연
         Thread.sleep(3000);
 
-        String isValid = emailcheckservice.isValidEmail(user.getEmail());
-        User userResult = new User();
-        userResult.setEmail(user.getEmail());
-        userResult.setResult(isValid);
+        Boolean usermailboolean = emailcheckservice.isValidEmail(userlog.getResult());
+        userlog.setDate(dbservice.findNow());
+        userlog.setIdx(dbservice.findIdx()+1);
+        userlog.setMail(dbservice.logBoolean(usermailboolean));
 
-        return userResult;
+        //db에 로그 저장
+        dbservice.insertLog(userlog);
+        return userlog;
     }
 
-    @RequestMapping(value = "/test")
-    public ModelAndView test() throws Exception {
 
-        List<TestVo> testList = testService.selectTest();
 
-        ModelAndView mav = new ModelAndView();
-        mav.addObject("list", testList);
-        return mav;
-        
-    }
+ 
     
     
   

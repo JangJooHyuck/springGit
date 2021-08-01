@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${value}"></title>
+    <title id="title" th:text="${value}"></title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 <script src="/js/Getapi.js" defer></script>
 <script src="/js/POSTapi.js" defer></script>
-<script src="/js/jQuery.js" defer></script>
+<script src="/js/Ajaxapi.js" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,17 +64,16 @@
             <button  id="btn_1" type="button" onclick="GetAPI()" >GET</button>
             <button  id="btn_2" type="button" onclick="PostAPI()" >POST</button>
         </div>
-        
-
-           
             <div >
                 <h1 id="emailprint"></h1>
             </div>
             <div >
                 <h1 id="result"></h1>
             </div>
-        
      </form>
+     
+      <script type="text/JavaScript" src="/js/POSTapi.js"></script>
+    <script type="text/JavaScript" src="/js/Getapi.js"></script>
 
 </body>
 </html>
