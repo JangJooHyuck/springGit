@@ -20,6 +20,7 @@ public class HtmlController {
         //index.html 불러옴
         return "index";
     }
+    
     //main.html
     @ModelAttribute
     @RequestMapping("/main")
