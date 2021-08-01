@@ -42,21 +42,17 @@ public class ApiController {
     // 값이 check 인것을 파라미터로 받아온다.
     public Userlog getResult(@RequestParam(value = "check") String userEmail, @RequestParam(value="userIP") String UserIP ) throws Exception {
         
-         //3초 지연
-         Thread.sleep(3000);
-
+        //3초 지연
+        Thread.sleep(3000);
         Boolean usermailboolean = emailcheckservice.isValidEmail(userEmail);
         userlog.setDate(dbservice.findNow());
         userlog.setIdx(dbservice.findIdx()+1);
         userlog.setResult(userEmail);
         userlog.setMail(dbservice.logBoolean(usermailboolean));
         userlog.setUserIP(UserIP);
-
         //db에 로그 저장
         dbservice.insertLog(userlog);
         return userlog;
-
-        
     }
 
     //post 방식
