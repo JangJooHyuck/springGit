@@ -3,17 +3,6 @@ var table = document.getElementById("userLogTBody")
 // Tbody 태그에 넣을 html
 var html = "";
 
-fetch("http://localhost:1233/api/findIdxCount")
-    .then(response => response.json())
-    .then(data => {
-        $('#pagination-demo').twbsPagination({
-            totalPages: data,
-            visiblePages: 10,
-            onPageClick: function (event, page) {
-                logAPI(page);
-            }
-        });
-    });
 
 //api를 호출하여 pageNumber에 필요한 데이터베이스 불러와 데이터 입력해주는 함수
 function logAPI(page){

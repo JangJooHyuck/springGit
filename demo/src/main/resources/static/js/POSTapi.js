@@ -1,4 +1,4 @@
-async function PostAPI(){
+async function ajaxPostAPI(){
 
         // html 에서 값을 getemail에 저장함
         const getemail = document.getElementById("email").value;
@@ -7,7 +7,7 @@ async function PostAPI(){
         //제이쿼리. spinner 에 있는 display 값을 block으로 해준다.
 
         $("#spinner").css("display", "block");
-        //api 호출
+        //ajax 통신
         $.ajax({
             type: "POST",
             async: "async",

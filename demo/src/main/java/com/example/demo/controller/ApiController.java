@@ -3,7 +3,9 @@ package com.example.demo.controller;
 import com.example.demo.service.dbService;
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,8 +17,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.demo.model.Userlog;
 import com.example.demo.service.EmailcheckService;
 
+import java.util.List;
 
-import org.springframework.web.bind.annotation.RequestBody;
 
 
 
@@ -73,13 +75,20 @@ public class ApiController {
         //db에 로그 저장
         dbservice.insertLog(userlog);
         return userlog;
+        
     }
-
-
-
+     // select * from log order by idx desc limit start , 10
+     @GetMapping("/ajax")
+     @ResponseBody
+     public List<Userlog> getLog(@RequestParam(value = "pageNumber" , defaultValue = "1") int pageNumber) throws Exception{
+         return dbservice.getAllLog((pageNumber-1) * 10, 10);
+     }
  
-    
-    
-  
+     // total page 찾아주는 api 현재 databse count 에서 보여줄 목록(10)을 나누고 나머지가 > 0 +1 or 10 나눈그대로 리턴
+     @GetMapping("/findIdxCount")
+     @ResponseBody
+     public int getCount(){
+         return dbservice.findIdx()%10 > 0 ? dbservice.findIdx()/10 + 1 : dbservice.findIdx()/10;
+     }
 }
     

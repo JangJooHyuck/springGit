@@ -16,8 +16,8 @@ public interface UserLogMp {
   List<Userlog> findAll(@Param("start") int start,@Param("end") int end);
 
   // database에 userLog 객체를 넣어주는 mapper
-  @Insert("INSERT INTO LOG (idx, currentUserIPv4, date, inCheckStr, checkResult) VALUES (#{idx},#{currentUserIPv4},#{date},#{inCheckStr},#{checkResult})")
-  void Insert(Userlog user);
+  @Insert("INSERT INTO LOG (idx, userIP, Date, Mail, Result) VALUES (#{idx},#{userIP},#{Date},#{Mail},#{Result})")
+  void Insert(Userlog userlog);
 
   // 현재 database에 들어가있는 data의 수
   @Select("SELECT COUNT(idx) from log")

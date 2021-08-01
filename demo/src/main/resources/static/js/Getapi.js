@@ -1,6 +1,6 @@
 
 //사용자가 입력한 이메일 출력
-async function GetAPI() {
+async function ajaxGetAPI() {
     
      // email 에 id=email 안에 들어있는 값을 넣어줌
      const getemail = document.getElementById("email").value;
@@ -29,12 +29,15 @@ async function GetAPI() {
           
                //아니면
                }else{
+          
                     document.getElementById("emailprint").innerText = respData.email + " :";
                     document.getElementById("result").innerText = respData.result;
                }
                $("#spinner").css("display", "none");
+     
           }
      });
+     
     }
      
    
