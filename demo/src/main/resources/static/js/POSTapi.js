@@ -11,28 +11,28 @@ async function ajaxPostAPI(){
         $.ajax({
             type: "POST",
             async: "async",
-            url: "http://localhost:1233/api/post", 
-            contentType: "apllication/json",
+            url: "http://localhost:1233/api/post",
+            contentType: "application/json",
             data: JSON.stringify({
                 idx : null,
-                Date : null,
-                UserIP : title,
+                date : null,
+                userIP : title,
                 checkMail : getemail,
-                Result : null
+                result : null
             })
             ,dataType: "json"
             ,success:function(data){
                  if(data.result == "success"){
                       document.getElementById("emailprint").innerText = data.email+ " :";
                       document.getElementById("result").innerText = data.result;
-            
+
                  //아니면
                  }else{
                       document.getElementById("emailprint").innerText = data.email + " :";
                       document.getElementById("result").innerText = data.result;
                  }
                  $("#spinner").css("display", "none");
-                 
+
                  }
                  //통신 실패시 콘솔에 에러 출력
                  ,error:function(data){
