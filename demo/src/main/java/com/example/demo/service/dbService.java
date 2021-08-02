@@ -5,6 +5,7 @@ import java.util.List;
 import com.example.demo.mapper.UserLogMp;
 import com.example.demo.model.Userlog;
 
+
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
@@ -13,7 +14,7 @@ import lombok.AllArgsConstructor;
 @Service
 @AllArgsConstructor
 public class dbService {
-  
+
     private UserLogMp userlogmp;
 
     public List<Userlog> getAllLog(int start, int end){
@@ -34,5 +35,5 @@ public class dbService {
     public String logBoolean(Boolean checkResult){
         return checkResult ? "success" : "fail";
     }
-    
+
 }

@@ -36,19 +36,19 @@ public class ApiController {
 
     Userlog userlog = new Userlog();
 
-    //get방식 
+    //get방식
     @GetMapping("/get")
     @ResponseBody
     // 값이 check 인것을 파라미터로 받아온다.
     public Userlog getResult(@RequestParam(value = "check") String userEmail, @RequestParam(value="userIP") String UserIP ) throws Exception {
-        
+
         //3초 지연
         Thread.sleep(3000);
         Boolean usermailboolean = emailcheckservice.isValidEmail(userEmail);
         userlog.setDate(dbservice.findNow());
         userlog.setIdx(dbservice.findIdx()+1);
-        userlog.setResult(userEmail);
-        userlog.setMail(dbservice.logBoolean(usermailboolean));
+        userlog.setResult(dbservice.logBoolean(usermailboolean));
+        userlog.setMail(userEmail);
         userlog.setUserIP(UserIP);
         //db에 로그 저장
         dbservice.insertLog(userlog);
@@ -71,7 +71,7 @@ public class ApiController {
         //db에 로그 저장
         dbservice.insertLog(userlog);
         return userlog;
-        
+
     }
      // select * from log order by idx desc limit start , 10
      @GetMapping("/ajax")
@@ -79,7 +79,7 @@ public class ApiController {
      public List<Userlog> getLog(@RequestParam(value = "pageNumber" , defaultValue = "1") int pageNumber) throws Exception{
          return dbservice.getAllLog((pageNumber-1) * 10, 10);
      }
- 
+
      // total page 찾아주는 api 현재 databse count 에서 보여줄 목록(10)을 나누고 나머지가 > 0 +1 or 10 나눈그대로 리턴
      @GetMapping("/findIdxCount")
      @ResponseBody
@@ -87,4 +87,4 @@ public class ApiController {
          return dbservice.findIdx()%10 > 0 ? dbservice.findIdx()/10 + 1 : dbservice.findIdx()/10;
      }
 }
-    
+

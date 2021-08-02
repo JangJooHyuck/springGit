@@ -1,5 +1,1 @@
-CREATE DATABASE db;
-USE db;
-CREATE TABLE dbTable(COLUMN1 VARCHAR(100));
-SHOW TABLES;
-
+select * from test_table

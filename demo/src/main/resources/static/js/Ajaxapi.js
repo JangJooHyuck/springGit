@@ -22,6 +22,7 @@ function logAPI(page){
     fetch(targetURL)
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             // html 초기화
             html="";
             tableCreate(data);
@@ -34,10 +35,10 @@ function tableCreate(data){
     for(key in data){
         html += "<tr>";
         html += "<td>" +data[key].idx + "</td>";
-        html += "<td>" +data[key].Date + "</td>";
-        html += "<td>" +data[key].UserIP + "</td>";
-        html += "<td>" +data[key].Mail + "</td>";
-        html += "<td>" +data[key].Result + "</td>";
+        html += "<td>" +data[key].date + "</td>";
+        html += "<td>" +data[key].userIP + "</td>";
+        html += "<td>" +data[key].mail + "</td>";
+        html += "<td>" +data[key].result + "</td>";
         html += "</tr>";
     }
 
