@@ -66,7 +66,7 @@ public class ApiController {
         Boolean usermailboolean = emailcheckservice.isValidEmail(userlog.getResult());
         userlog.setDate(dbservice.findNow());
         userlog.setIdx(dbservice.findIdx()+1);
-        userlog.setMail(dbservice.logBoolean(usermailboolean));
+        userlog.setResult(dbservice.logBoolean(usermailboolean));
 
         //db에 로그 저장
         dbservice.insertLog(userlog);

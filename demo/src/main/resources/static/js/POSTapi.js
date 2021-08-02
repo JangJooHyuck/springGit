@@ -14,14 +14,15 @@ async function ajaxPostAPI(){
             url: "http://localhost:1233/api/post",
             contentType: "application/json",
             data: JSON.stringify({
-                idx : null,
-                date : null,
+                idx : "",
+                date : "",
                 userIP : title,
-                checkMail : getemail,
-                result : null
+                mail : getemail,
+                result : ""
             })
             ,dataType: "json"
             ,success:function(data){
+               console.log(data);
                  if(data.result == "success"){
                       document.getElementById("emailprint").innerText = data.email+ " :";
                       document.getElementById("result").innerText = data.result;
@@ -35,9 +36,6 @@ async function ajaxPostAPI(){
 
                  }
                  //통신 실패시 콘솔에 에러 출력
-                 ,error:function(data){
-                    console.log("error");
-                    $("#spinner").css("display", "none");
-            }
+
        });
 }
