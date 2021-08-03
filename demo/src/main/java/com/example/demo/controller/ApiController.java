@@ -67,7 +67,7 @@ public class ApiController {
         userlog.setDate(dbservice.findNow());
         userlog.setIdx(dbservice.findIdx()+1);
         userlog.setResult(dbservice.logBoolean(usermailboolean));
-
+123123
         //db에 로그 저장
         dbservice.insertLog(userlog);
         return userlog;
