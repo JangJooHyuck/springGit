@@ -5,6 +5,14 @@ hr.line{
   border: none; border: 1px dashed blue;
 }
 
+input {
+  border: 2px solid rgb(178, 230, 247);
+	width:430px;
+	margin-top: 10px;
+	font-size: 14px;
+	margin-left: 10px;
+	height:30px;
+}
 
 #btn_group button{
   border: 1px solid skyblue;
