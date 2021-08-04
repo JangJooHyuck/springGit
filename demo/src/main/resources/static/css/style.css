@@ -1,7 +1,9 @@
 @charset "UTF-8";
 @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
-
+hr.line{
+  border: none; border: 1px dashed blue;
+}
 
 
 #btn_group button{
