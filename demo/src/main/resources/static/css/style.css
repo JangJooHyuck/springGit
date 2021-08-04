@@ -4,11 +4,27 @@
 
 
 
+#btn_group button{
+  border: 1px solid skyblue;
+  background-color: rgba(0,0,0,0);
+  color: skyblue;
+  padding: 5px;
+}
+#btn_group button:hover{
+ color: white;
+ background-color: skyblue;
+}
+
+
 #btn_1{
     margin-right:4px;
+    width: 80px;
+    height: 80px;
   }
   #btn_2{
     margin-left:-3px;
+    width: 80px;
+    height: 80px;
   }
   #btn_group button{
       border: 1px solid skyblue;
