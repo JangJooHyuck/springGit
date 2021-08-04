@@ -23,14 +23,14 @@ async function ajaxPostAPI(){
             ,dataType: "json"
             ,success:function(data){
                console.log(data);
-                 if(data.result == "success"){
-                      document.getElementById("emailprint").innerText = data.email+ " :";
-                      document.getElementById("result").innerText = data.result;
+               if(data.result == "success"){
+                    document.getElementById("emailprint").innerText = "Entered Email:" + data.mail;
+                    document.getElementById("result").innerText = data.result;
 
                  //아니면
                  }else{
-                      document.getElementById("emailprint").innerText = data.email + " :";
-                      document.getElementById("result").innerText = data.result;
+                    document.getElementById("emailprint").innerText =  "Entered Email:" + data.mail;
+                    document.getElementById("result").innerText = data.result;
                  }
                  $("#spinner").css("display", "none");
 
