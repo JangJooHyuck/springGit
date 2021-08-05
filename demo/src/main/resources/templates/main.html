@@ -5,26 +5,29 @@
 </head>
 
 <body>
-    <!-- header-->
+
+    <!-- header -->
+
     <header>
       <div th:replace="fragments/module.html :: header"></div>
   </header>
 
-    <!-- display가 none 이면 없어지고, blcok 이면 나타남-->
+
+  <!-- spinner -->
+
+    <!-- display가 none 이면 없어지고, block 이면 나타남-->
    <div id="spinner" style="display:none">
-    <!--loader는 회전하는 그림 -->
+    <!--loader는 회전하는 그림, css 에서 정리해놈 -->
     <div class="loader"></div>
+
 </div>
     </script>
 
-
     <!-- Body -->
+
     <body>
     <form class="emailSubscribe">
-
         <!-- 제목 -->
-
-
         <p><span style="border-radius: 50px 50px 50px 50px;
         display: flex;
         justify-content: center;
@@ -61,6 +64,8 @@
      </form>
     </center>
   </body>
+
+  <!-- footer -->
 
       <footer>
         <div th:replace="fragments/module.html :: footer"></div>
