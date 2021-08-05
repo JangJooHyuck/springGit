@@ -13,7 +13,7 @@ function ajaxGetAPI() {
           type: "GET",
           async: "async",
           url: "http://localhost:1233/api/get?check=" + getemail + "&userIP=" + title,
-          contentType: "apllication/json"
+          contentType: "application/json"
           // api 통신을 받을 DataType 은
           ,dataType: "json"
           ,success:function(data){
