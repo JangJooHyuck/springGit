@@ -45,6 +45,9 @@ public class ApiController {
         userlog.setResult(dbservice.logBoolean(usermailboolean));
         userlog.setMail(userEmail);
         userlog.setUserIP(UserIP);
+
+        //단어검색을 이용한게 아니니 Word 에는 공백으로 표시
+        userlog.setWord("");
         // db에 로그 저장
         dbservice.insertLog(userlog);
         return userlog;
@@ -63,6 +66,30 @@ public class ApiController {
         userlog.setIdx(dbservice.findIdx() + 1);
         userlog.setResult(dbservice.logBoolean(usermailboolean));
         userlog.setMail(userlog.getMail());
+
+        //단어검색을 이용한게 아니니 Word 에는 공백으로 표시
+        userlog.setWord("");
+
+        // db에 로그 저장
+        dbservice.insertLog(userlog);
+        return userlog;
+
+    }
+
+    //post dictionary
+    @RequestMapping(value = "/postDic", method = RequestMethod.POST)
+    @ResponseBody
+    public Userlog POSTResultDic(@RequestBody Userlog userlog) throws Exception {
+
+        // 3초 지연
+        Thread.sleep(3000);
+
+
+        userlog.setDate(dbservice.findNow());
+        userlog.setIdx(dbservice.findIdx() + 1);
+
+        userlog.setMail(userlog.getMail());
+        userlog.setWord(userlog.getWord());
 
         // db에 로그 저장
         dbservice.insertLog(userlog);

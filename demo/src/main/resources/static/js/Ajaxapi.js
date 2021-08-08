@@ -39,6 +39,7 @@ function tableCreate(data){
         html += "<td>" +data[key].userIP + "</td>";
         html += "<td>" +data[key].mail + "</td>";
         html += "<td>" +data[key].result + "</td>";
+        html += "<td>" +data[key].word + "</td>";
         html += "</tr>";
     }
 

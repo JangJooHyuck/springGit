@@ -19,5 +19,6 @@ public class Userlog {
     String UserIP;
     String Mail;
     String Result;
-    
+    String Word;
+
 }

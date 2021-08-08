@@ -20,7 +20,7 @@ public class HtmlController {
         //index.html 불러옴
         return "index";
     }
-    
+
     //main.html
     @ModelAttribute
     @RequestMapping("/main")
@@ -38,5 +38,12 @@ public class HtmlController {
     public String printLog() throws Exception{
         return "printLog";
     }
+
+    //dictionary.html
+    @RequestMapping("/dictionary")
+    public String dictionary() throws Exception{
+        return "dictionary";
+    }
+
 
 }
