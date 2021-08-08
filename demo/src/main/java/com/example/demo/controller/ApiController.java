@@ -84,10 +84,8 @@ public class ApiController {
         // 3초 지연
         Thread.sleep(3000);
 
-
         userlog.setDate(dbservice.findNow());
         userlog.setIdx(dbservice.findIdx() + 1);
-
         userlog.setMail(userlog.getMail());
         userlog.setWord(userlog.getWord());
 
