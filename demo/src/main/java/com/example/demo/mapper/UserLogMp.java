@@ -26,4 +26,7 @@ public interface UserLogMp {
   // 현재 시간을 알려주는 데이터베이스 select 문
   @Select("SELECT NOW()")
   String findNow();
+
+  @Select("SELECT * FROM test_table WHERE Word LIKE '%asd%'as success")
+  String isWordin();
 }

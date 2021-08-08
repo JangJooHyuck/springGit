@@ -69,7 +69,7 @@ async function ajaxPostDic(){
        ,success:function(data){
 
 
-          document.getElementById("wordprint").innerText = "입력하신 단어는 : " + getword;
+          //document.getElementById("wordprint").innerText = "입력하신 단어는 : " + getword;
             $("#spinner").css("display", "none");
 
             }
