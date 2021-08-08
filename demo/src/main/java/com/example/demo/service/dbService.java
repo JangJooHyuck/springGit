@@ -35,5 +35,8 @@ public class dbService {
     public String logBoolean(Boolean checkResult){
         return checkResult ? "success" : "fail";
     }
+    public String isWordin(){
+        return userlogmp.isWordin();
+    }
 
 }
