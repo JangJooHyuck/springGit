@@ -66,7 +66,7 @@ public class HtmlController {
         paging.setCurrentPage(pageNumber);
         paging.setTotalPage(jpaService.findAll(pageable).getTotalPages());
         // Thymeleaf 로 받을 List<User> , paging 2가지 데이터를 추가
-        model.addAttribute("userLogs", jpaService.findAll(pageable).getContent());
+        model.addAttribute("userlogs", jpaService.findAll(pageable).getContent());
         model.addAttribute("pagingData", paging);
         return "printLog";
     }
