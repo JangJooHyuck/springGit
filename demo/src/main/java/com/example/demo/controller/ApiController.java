@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.DAO.Userlog;
+import com.example.demo.DAO.Word;
+import com.example.demo.model.User;
 import com.example.demo.service.EmailcheckService;
+import com.example.demo.service.Findword;
 import com.example.demo.service.JPAService;
 
 
@@ -33,6 +36,10 @@ public class ApiController {
 
     Page<Userlog> userlogList;
 
+    Userlog userlog2 = new Userlog();
+
+    @Autowired
+    Findword findword;
 
     // get방식
     @GetMapping("/get")
@@ -50,24 +57,23 @@ public class ApiController {
     // post 방식
     @RequestMapping(value = "/post", method = RequestMethod.POST)
     @ResponseBody
-    public Userlog POSTresult(@RequestBody Userlog userlog) throws Exception {
+    public Userlog POSTresult(@RequestBody User userlog) throws Exception {
 
         // 3초 지연
         Thread.sleep(3000);
-        jpaService.save(new Userlog(userlog.getUserIP(), userlog.getResult(),emailcheckservice.isValidEmail(userlog.getResult())));
+        jpaService.save(new Userlog(userlog.getUserip(),userlog.getMail(),emailcheckservice.isValidEmail(userlog.getMail())));
         return jpaService.findFirstByOrderByIdDesc();
     }
 
     //post dictionary
     @RequestMapping(value = "/postDic", method = RequestMethod.POST)
     @ResponseBody
-    public Userlog POSTResultDic(@RequestBody Userlog userlog) throws Exception {
+    public Word POSTResultDic(@RequestBody Word word) throws Exception {
 
         // 3초 지연
         Thread.sleep(3000);
-        Thread.sleep(3000);
-        jpaService.save(new Userlog(userlog.getUserIP(), userlog.getResult(),emailcheckservice.isValidEmail(userlog.getResult())));
-        return jpaService.findFirstByOrderByIdDesc();
+        findword.save(new Word(word.getWord(),findword.getContent(word.getWord())));
+        return findword.findByWord(word.getWord());
 
     }
 

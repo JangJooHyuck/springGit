@@ -4,6 +4,7 @@ async function ajaxPostAPI(){
         var getemail = document.getElementById("email").value;
         var title = $("#title").text();
 
+
         //제이쿼리. spinner 에 있는 display 값을 block으로 해준다.
 
         $("#spinner").css("display", "block");
@@ -14,12 +15,8 @@ async function ajaxPostAPI(){
             url: "http://localhost:1233/api/post",
             contentType: "application/json",
             data: JSON.stringify({
-                id : null,
-                createDate : null,
-                modifiedDate : null,
-                userIP : title,
                 mail : getemail,
-                result : null
+                userip : title
             })
             ,dataType: "json"
             ,success:function(data){
@@ -43,7 +40,7 @@ async function ajaxPostAPI(){
 
 async function ajaxPostDic(){
 
-   // html 에서 값을 getemail에 저장함
+   // html 에서 값을 getword에 저장함
    var getword = document.getElementById("word").value;
    var title = $("#title").text();
 
@@ -58,16 +55,15 @@ async function ajaxPostDic(){
        url: "http://localhost:1233/api/postDic",
        contentType: "application/json",
        data: JSON.stringify({
-           idx : null,
            word : getword,
-           content : null
+           content : ""
        })
        ,dataType: "json"
        ,success:function(data){
+            console.log(data);
 
-
-          document.getElementById("wordprint").innerText = "입력하신 단어는 : " + data.word;
-          document.getElementById("wordprint2").innerText = "입력하신 단어는 : " + data.content;
+          document.getElementById("wordprint").innerText = data.word;
+          document.getElementById("wordprint2").innerText = data.content;
 
             $("#spinner").css("display", "none");
 
