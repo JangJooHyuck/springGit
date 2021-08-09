@@ -69,10 +69,16 @@ public class ApiController {
     @RequestMapping(value = "/postDic", method = RequestMethod.POST)
     @ResponseBody
     public Word POSTResultDic(@RequestBody Word word) throws Exception {
-
+        //ajax로 api호출해서 값받고 js로 전달
+        if(findword.findByWord(word.getWord()) != null){
         // 3초 지연
         Thread.sleep(3000);
+        return findword.findByWord(word.getWord());
+        }else{
+
+        Thread.sleep(3000);
         findword.save(new Word(word.getWord(),findword.getContent(word.getWord())));
+        }
         return findword.findByWord(word.getWord());
 
     }

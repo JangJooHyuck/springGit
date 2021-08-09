@@ -1,1 +1,1 @@
-drop table userlog
+drop table words
