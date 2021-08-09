@@ -75,10 +75,10 @@ public class HtmlController {
     @ModelAttribute
     @RequestMapping(value = "/dictionary", method = RequestMethod.GET)
     public String dictionary(@RequestParam(value = "word", required = false)String word, Model model) throws Exception{
-
+        // ajax 사용없이 thymeleaf로 값 html에 배치시키는거
         if(word == null){
             userWord = new Word();
-            model.addAttribute("userword", userWord);
+            model.addAttribute("userWord", userWord);
             return "dictionary";
         }
         else
@@ -86,6 +86,7 @@ public class HtmlController {
             if(findword.findByWord(word) == null){
                 findword.save(new Word(word, findword.getContent(word)));
                 userWord = findword.findByWord(word);
+                model.addAttribute("userWord", userWord);
             }
             else{
                 userWord = findword.findByWord(word);
