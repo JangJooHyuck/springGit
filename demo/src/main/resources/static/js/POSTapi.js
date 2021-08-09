@@ -14,12 +14,12 @@ async function ajaxPostAPI(){
             url: "http://localhost:1233/api/post",
             contentType: "application/json",
             data: JSON.stringify({
-                idx : "",
-                date : "",
+                id : null,
+                createDate : null,
+                modifiedDate : null,
                 userIP : title,
                 mail : getemail,
-                result : "",
-                Word : ""
+                result : null
             })
             ,dataType: "json"
             ,success:function(data){
@@ -58,18 +58,17 @@ async function ajaxPostDic(){
        url: "http://localhost:1233/api/postDic",
        contentType: "application/json",
        data: JSON.stringify({
-           idx : "",
-           date : "",
-           userIP : title,
-           mail : "",
-           result : "",
-           word : getword
+           idx : null,
+           word : getword,
+           content : null
        })
        ,dataType: "json"
        ,success:function(data){
 
 
-          //document.getElementById("wordprint").innerText = "입력하신 단어는 : " + getword;
+          document.getElementById("wordprint").innerText = "입력하신 단어는 : " + data.word;
+          document.getElementById("wordprint2").innerText = "입력하신 단어는 : " + data.content;
+
             $("#spinner").css("display", "none");
 
             }
