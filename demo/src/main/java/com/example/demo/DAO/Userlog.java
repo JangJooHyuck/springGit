@@ -1,6 +1,8 @@
 package com.example.demo.DAO;
 
 
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -37,6 +39,7 @@ public class Userlog extends TimeEntity {
         this.UserIP = UserIP;
         this.Mail = Mail;
         this.Result = Result;
+
     }
 
 }

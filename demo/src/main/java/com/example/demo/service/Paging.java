@@ -14,7 +14,6 @@ import lombok.Setter;
 @AllArgsConstructor
 
 public class Paging {
-
-    int currentPage; // 현재페이지
-    int totalPage; // 총페이지
+    int CurrentPage; // 현재페이지
+    int TotalPage; // 총페이지
 }

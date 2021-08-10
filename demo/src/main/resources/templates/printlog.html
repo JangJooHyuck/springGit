@@ -30,7 +30,7 @@
         <tbody id = "userlogTBody">
           <tr th:each="list : ${userlogs}">
             <td><span th:text="${list.id}"></span></td>
-            <td><span th:text="${list.createDate}"></span></td>
+            <td><span th:text="${list.createdDate}"></span></td>
             <td><span th:text="${list.modifiedDate}"></span></td>
             <td><span th:text="${list.UserIP}"></span></td>
             <td><span th:text="${list.Mail}"></span></td>
@@ -50,5 +50,18 @@
     </footer>
 
     <script type="text/JavaScript" src="/js/findword.js"></script>
+    <script th:inline="javascript">
+      var CurrentPage;
+      var TotalPage;
+      $("#pagination-demo").twbsPagination({
+            totalPages: TotalPage,
+            startPage: CurrentPage,
+            visiblePages: 10,
+            initiateStartPageClick: false,
+            onPageClick: function (event, page){
+                window.location.href = '/printlog?value=' + page;
+            }
+            });
+    </script>
 
 </html>

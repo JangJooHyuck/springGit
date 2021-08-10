@@ -15,12 +15,17 @@ async function ajaxPostAPI(){
             url: "http://localhost:1233/api/post",
             contentType: "application/json",
             data: JSON.stringify({
+                id : null,
+                createdDate : null,
+                modifiedDate : null,
                 mail : getemail,
-                userip : title
+                userip : title,
+                result : null
             })
             ,dataType: "json"
             ,success:function(data){
                console.log(data);
+
                if(data.result == "success"){
                     document.getElementById("emailprint").innerText = "Entered Email:" + data.mail;
                     document.getElementById("result").innerText = data.result;
