@@ -9,6 +9,7 @@
     <!-- header -->
 
     <header>
+      <!-- fragments폴더안에 module.html 에 있는 header 가져오기-->
       <div th:replace="fragments/module.html :: header"></div>
   </header>
 
@@ -49,16 +50,18 @@
         style="width: 150pt; height:20pt"/></div>
 
        <br>
-            <!-- 이메일 체크버튼, 각각 클릭시 GetAPI()또는 PostAPI() 호출 -->
+            <!-- 이메일 체크버튼, 각각 클릭시 ajaxGetAPI()또는 ajaxPostAPI() 호출 -->
             <div id="btn_group">
             <button  id="btn_1" type="button" onclick="ajaxGetAPI()" >GET</button>
             <button  id="btn_2" type="button" onclick="ajaxPostAPI()" >POST</button>
         </div>
             <div >
               <br>
+              <!-- 사용자가 입력한 이메일을 출력해주는 곳-->
                 <h1 id="emailprint"></h1>
             </div>
             <div >
+              <!-- 사용자가 입력한 이메일이 형식에 맞는지 success 또는 fail 을 출력해주는곳-->
                 <h1 id="result"></h1>
             </div>
      </form>
@@ -68,6 +71,7 @@
   <!-- footer -->
 
       <footer>
+        <!-- fragments폴더안에 module.html 에 있는 footer 가져오기-->
         <div th:replace="fragments/module.html :: footer"></div>
     </footer>
 

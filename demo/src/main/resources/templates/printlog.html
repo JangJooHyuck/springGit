@@ -49,19 +49,25 @@
       <head th:replace="fragments/module.html :: footer">
     </footer>
 
-    <script type="text/JavaScript" src="/js/findword.js"></script>
     <script th:inline="javascript">
-      var CurrentPage;
-      var TotalPage;
+      var currentPage = /*[[${pagingData.currentPage}]]*/;
+      var totalPage =  /*[[${pagingData.totalPage}]]*/;
       $("#pagination-demo").twbsPagination({
-            totalPages: TotalPage,
-            startPage: CurrentPage,
-            visiblePages: 10,
-            initiateStartPageClick: false,
-            onPageClick: function (event, page){
-                window.location.href = '/printlog?value=' + page;
-            }
-            });
+        totalPages : totalPage, // 전체 페이지 수
+        startPage : currentPage, // 시작시 표시되는 현재 페이지
+        visiblePages : 10, // 하단에 한번에 보여지는 페이지번호
+        initiateStartPageClick : false, // 플러그인 시작시 페이지 버튼 클릭 여부
+
+        //클릭 이벤트
+        onPageClick : function (event, page){
+
+          //printlog?value= 페이지 번호
+          window.location.href = '/printlog?value=' + page;
+        }
+      });
+
+    </script>
+    </ul>
     </script>
 
 </html>

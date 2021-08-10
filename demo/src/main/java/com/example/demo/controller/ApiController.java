@@ -48,8 +48,10 @@ public class ApiController {
     public Userlog getResult(@RequestParam(value = "check") String userEmail,
     @RequestParam(value = "userIP") String UserIP) throws Exception {
 
-        // 3초 지연
+        // 3초 지연 (spinner 를 보여주기위해 일부러 지연시킴)
         Thread.sleep(3000);
+
+
         jpaService.save(new Userlog(UserIP, userEmail, emailcheckservice.isValidEmail(userEmail)));
         return jpaService.findFirstByOrderByIdDesc();
     }

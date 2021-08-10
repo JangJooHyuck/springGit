@@ -68,14 +68,14 @@ public class HtmlController {
         // Thymeleaf 로 받을 List<User> , paging 2가지 데이터를 추가
         model.addAttribute("userlogs", jpaService.findAll(pageable).getContent());
         model.addAttribute("pagingData", paging);
-        return "printLog";
+        return "printlog";
     }
 
     //dictionary.html
     @ModelAttribute
     @RequestMapping(value = "/dictionary", method = RequestMethod.GET)
     public String dictionary(@RequestParam(value = "word", required = false)String word, Model model) throws Exception{
-        // ajax 사용없이 thymeleaf로 값 html에 배치시키는거
+        //thymeleaf로 값 html에 배치시키기
         if(word == null){
             userWord = new Word();
             model.addAttribute("userWord", userWord);

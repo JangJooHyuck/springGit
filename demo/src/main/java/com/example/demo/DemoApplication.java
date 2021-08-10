@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+
 @EnableJpaAuditing
 @SpringBootApplication
 public class DemoApplication implements WebMvcConfigurer {

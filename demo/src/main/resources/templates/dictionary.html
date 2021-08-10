@@ -9,6 +9,7 @@
     <!-- header -->
 
     <header>
+      <!-- fragments폴더안에 module.html 에 있는 header 가져오기-->
       <div th:replace="fragments/module.html :: header"></div>
   </header>
 
@@ -51,13 +52,16 @@
        <br>
 
             <div id="btn_group">
+              <!-- 검색버튼을 누르면 ajaxPostDic() 을 실행한다. POSTapi.js 에 있음-->
             <button  id="btn_2" type="button" onclick="ajaxPostDic()" >검색</button>
         </div>
             <div >
               <br>
+              <!--사용자가 검색한 단어를 보여주는 곳-->
                 <h1 id="wordprint"></h1>
             </div>
             <div >
+              <!-- 사용자가 검색한 단어의 뜻을 보여주는 곳-->
                 <h1 id="wordprint2"></h1>
             </div>
      </form>
@@ -67,6 +71,7 @@
   <!-- footer -->
 
       <footer>
+        <!-- fragments폴더안에 module.html 에 있는 footer 가져오기-->
         <div th:replace="fragments/module.html :: footer"></div>
     </footer>
 
